@@ -62,6 +62,8 @@ AwsApiGatewayEventHeaders _$AwsApiGatewayEventHeadersFromJson(
     upgradeInsecureRequests: json['Upgrade-Insecure-Requests'] as String?,
     cacheControl: json['Cache-Control'] as String?,
     host: json['Host'] as String?,
+    origin: json['origin'] as String?,
+    referer: json['referer'] as String?,
     via: json['Via'] as String?,
     userAgent: json['User-Agent'] as String?,
     xAmzCfId: json['X-Amz-Cf-Id'] as String?,
@@ -95,6 +97,8 @@ Map<String, dynamic> _$AwsApiGatewayEventHeadersToJson(
       'CloudFront-Is-Tablet-Viewer', instance.cloudfrontIsTabletViewer);
   writeNotNull('CloudFront-Viewer-Country', instance.cloudfrontViewerCountry);
   writeNotNull('Host', instance.host);
+  writeNotNull('origin', instance.origin);
+  writeNotNull('referer', instance.referer);
   writeNotNull('Upgrade-Insecure-Requests', instance.upgradeInsecureRequests);
   writeNotNull('User-Agent', instance.userAgent);
   writeNotNull('Via', instance.via);

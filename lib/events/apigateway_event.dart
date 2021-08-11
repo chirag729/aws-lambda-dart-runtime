@@ -104,8 +104,7 @@ class AwsApiGatewayEvent extends Event {
   /// Request Context ...
   final AwsApiGatewayEventRequestContext? requestContext;
 
-  factory AwsApiGatewayEvent.fromJson(Map<String, dynamic> json) =>
-      _$AwsApiGatewayEventFromJson(json);
+  factory AwsApiGatewayEvent.fromJson(Map<String, dynamic> json) => _$AwsApiGatewayEventFromJson(json);
 
   Map<String, dynamic> toJson() => _$AwsApiGatewayEventToJson(this);
 
@@ -150,6 +149,12 @@ class AwsApiGatewayEventHeaders {
 
   @JsonKey(name: 'Host')
   final String? host;
+
+  @JsonKey(name: 'origin')
+  final String? origin;
+
+  @JsonKey(name: 'referer')
+  final String? referer;
 
   @JsonKey(name: 'Upgrade-Insecure-Requests')
   final String? upgradeInsecureRequests;
@@ -202,6 +207,8 @@ class AwsApiGatewayEventHeaders {
       this.upgradeInsecureRequests,
       this.cacheControl,
       this.host,
+      this.origin,
+      this.referer,
       this.via,
       this.userAgent,
       this.xAmzCfId,
@@ -238,12 +245,10 @@ class AwsApiGatewayEventRequestContext {
   @JsonKey()
   final AwsApiGatewayEventRequestContextAuthorizer? authorizer;
 
-  factory AwsApiGatewayEventRequestContext.fromJson(
-          Map<String, dynamic> json) =>
+  factory AwsApiGatewayEventRequestContext.fromJson(Map<String, dynamic> json) =>
       _$AwsApiGatewayEventRequestContextFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      _$AwsApiGatewayEventRequestContextToJson(this);
+  Map<String, dynamic> toJson() => _$AwsApiGatewayEventRequestContextToJson(this);
 
   const AwsApiGatewayEventRequestContext(
       {this.accountId,
@@ -292,12 +297,10 @@ class AwsApiGatewayEventRequestContextIdentity {
   @JsonKey()
   final String? user;
 
-  factory AwsApiGatewayEventRequestContextIdentity.fromJson(
-          Map<String, dynamic> json) =>
+  factory AwsApiGatewayEventRequestContextIdentity.fromJson(Map<String, dynamic> json) =>
       _$AwsApiGatewayEventRequestContextIdentityFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      _$AwsApiGatewayEventRequestContextIdentityToJson(this);
+  Map<String, dynamic> toJson() => _$AwsApiGatewayEventRequestContextIdentityToJson(this);
 
   const AwsApiGatewayEventRequestContextIdentity(
       {this.cognitoIdentityPoolId,
@@ -319,12 +322,10 @@ class AwsApiGatewayEventRequestContextAuthorizer {
   @JsonKey()
   final AwsApiGatewayEventRequestContextAuthorizerClaims? claims;
 
-  factory AwsApiGatewayEventRequestContextAuthorizer.fromJson(
-          Map<String, dynamic> json) =>
+  factory AwsApiGatewayEventRequestContextAuthorizer.fromJson(Map<String, dynamic> json) =>
       _$AwsApiGatewayEventRequestContextAuthorizerFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      _$AwsApiGatewayEventRequestContextAuthorizerToJson(this);
+  Map<String, dynamic> toJson() => _$AwsApiGatewayEventRequestContextAuthorizerToJson(this);
 
   const AwsApiGatewayEventRequestContextAuthorizer(this.claims);
 }
@@ -365,23 +366,11 @@ class AwsApiGatewayEventRequestContextAuthorizerClaims {
   @JsonKey()
   final String? email;
 
-  factory AwsApiGatewayEventRequestContextAuthorizerClaims.fromJson(
-          Map<String, dynamic> json) =>
+  factory AwsApiGatewayEventRequestContextAuthorizerClaims.fromJson(Map<String, dynamic> json) =>
       _$AwsApiGatewayEventRequestContextAuthorizerClaimsFromJson(json);
 
-  Map<String, dynamic> toJson() =>
-      _$AwsApiGatewayEventRequestContextAuthorizerClaimsToJson(this);
+  Map<String, dynamic> toJson() => _$AwsApiGatewayEventRequestContextAuthorizerClaimsToJson(this);
 
-  const AwsApiGatewayEventRequestContextAuthorizerClaims(
-      this.sub,
-      this.aud,
-      this.email_verified,
-      this.event_id,
-      this.token_use,
-      this.iss,
-      this.cognito_username,
-      this.name,
-      this.exp,
-      this.iat,
-      this.email);
+  const AwsApiGatewayEventRequestContextAuthorizerClaims(this.sub, this.aud, this.email_verified, this.event_id,
+      this.token_use, this.iss, this.cognito_username, this.name, this.exp, this.iat, this.email);
 }
