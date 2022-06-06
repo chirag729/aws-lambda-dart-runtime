@@ -86,13 +86,13 @@ class AwsCognitoRequest {
 @JsonSerializable()
 class AwsCognitoResponse {
   @JsonKey()
-  final bool? autoConfirmUser;
+  bool? autoConfirmUser;
 
   @JsonKey()
-  final bool? autoVerifyPhone;
+  bool? autoVerifyPhone;
 
   @JsonKey()
-  final bool? autoVerifyEmail;
+  bool? autoVerifyEmail;
 
   @JsonKey()
   final AwsClaimOverrideDetails? claimsOverrideDetails;
@@ -121,7 +121,7 @@ class AwsCognitoResponse {
   @JsonKey()
   final String? emailSubject;
 
-  const AwsCognitoResponse(
+  AwsCognitoResponse(
       {this.autoConfirmUser,
       this.autoVerifyEmail,
       this.autoVerifyPhone,
